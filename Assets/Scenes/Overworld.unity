@@ -1445,6 +1445,7 @@ GameObject:
   - component: {fileID: 687447077}
   - component: {fileID: 687447073}
   - component: {fileID: 687447078}
+  - component: {fileID: 687447079}
   m_Layer: 0
   m_Name: PLayerWizard
   m_TagString: Untagged
@@ -1469,6 +1470,9 @@ MonoBehaviour:
   whatStopsMovement:
     serializedVersion: 2
     m_Bits: 64
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!4 &687447076
 Transform:
   m_ObjectHideFlags: 0
@@ -1564,6 +1568,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.8, y: 10.8}
   m_EdgeRadius: 0
+--- !u!95 &687447079
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687447072}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e30687508d0810c40bae8fbfec190a03, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &854355409
 GameObject:
   m_ObjectHideFlags: 0
