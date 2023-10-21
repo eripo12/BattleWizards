@@ -3,7 +3,7 @@ using UnityEngine;
 public class Actor : MonoBehaviour
 {
     public int maxHealth = 100;
-    public int currentHealth;
+    public int currentHealth; // Made this public
     public int attackPower = 10;
     public HealthBar healthBar;
 
@@ -13,21 +13,26 @@ public class Actor : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
-public void TakeDamage(int damage)
-{
-    Debug.Log(gameObject.name + " is taking " + damage + " damage.");
-    
-    currentHealth -= damage;
-    healthBar.SetHealth(currentHealth);
-
-    Debug.Log(gameObject.name + "'s current health: " + currentHealth);
-
-    if (currentHealth <= 0)
+    public void TakeDamage(int damage)
     {
-        Die();
-    }
-}
+        Debug.Log(gameObject.name + " is taking " + damage + " damage.");
+        
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
 
+        Debug.Log(gameObject.name + "'s current health: " + currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    // Added a method to handle custom attacks with variable damage values
+    public void CustomAttack(Actor target, int damageAmount)
+    {
+        target.TakeDamage(damageAmount);
+    }
 
     public void Attack(Actor target)
     {

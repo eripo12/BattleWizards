@@ -16,6 +16,9 @@ public class TurnManager : MonoBehaviour
     // Flag to track if a turn is in progress
     public bool isTurnInProgress = false;
 
+    // Add this new field
+    public int turnCount = 0;
+
     private void Start()
     {
         // Initially set the turn to Player's turn
@@ -59,12 +62,9 @@ public class TurnManager : MonoBehaviour
     private void SetTurn(Turn newTurn)
     {
         currentTurn = newTurn;
+        turnCount++; // Increment the turn count here
         Debug.Log("Current turn set to: " + currentTurn); // Added Debug
         OnTurnChanged?.Invoke(currentTurn);
     }
 }
-
-
-
-
 
