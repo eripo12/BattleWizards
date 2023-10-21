@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovementScript : MonoBehaviour
 {
@@ -69,13 +70,20 @@ public class MovementScript : MonoBehaviour
 
         animator.SetBool("isMoving", isMoving);
 
-        //if (Input.GetKeyDown(KeyCode.Z))
-            //Interact();
+        if (Input.GetKeyDown(KeyCode.Z))
+            Interact();
     }
 
     void Interact()
     {
+        var facingDir = new Vector3(animator.GetFloat("moveX"), animator.GetFloat("moveY"));
+        var interactPos = transform.position + facingDir;
 
-        //Physics2D.OverLapCircle(-, 0.3f, interactableLayer);
+        if (Physics2D.OverlapCircle(interactPos, 0.3f, interactableLayer))
+            SceneManager.LoadScene(2);
+        //if (collider != null)
+        //{
+        //    SceneManager.LoadScene(1);
+        //}
     }
 }
