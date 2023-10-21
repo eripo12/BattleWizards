@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Actor : MonoBehaviour
 {
@@ -40,8 +42,15 @@ public class Actor : MonoBehaviour
     }
 
     void Die()
+{
+    // Handle death. For now, just deactivate the object
+    gameObject.SetActive(false);
+
+    // If the current actor is the enemy, load the "Overworld" scene
+    if (gameObject.CompareTag("Enemy"))
     {
-        // Handle death. For now, just deactivate the object
-        gameObject.SetActive(false);
+        SceneManager.LoadScene("Overworld");
     }
+}
+
 }
