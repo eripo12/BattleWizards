@@ -4,6 +4,9 @@ using System.Collections;
 
 public class TurnManager : MonoBehaviour
 {
+    //reference for editing the dialogue box
+    [SerializeField] BattleDialogue dialogueText;
+
     public enum Turn { Player, Enemy }
     public Turn currentTurn = Turn.Player;
 
@@ -23,6 +26,8 @@ public class TurnManager : MonoBehaviour
     {
         // Initially set the turn to Player's turn
         SetTurn(Turn.Player);
+
+        dialogueText.setText("An enemy approaches...");
     }
 
     void Update()
