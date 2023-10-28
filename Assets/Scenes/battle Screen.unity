@@ -1289,7 +1289,7 @@ GameObject:
   - component: {fileID: 1142283699}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1317,7 +1317,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1965,6 +1965,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46a93003b9910c41b798ee9384c09f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackPrefabs:
+  - {fileID: 7485674489557961313, guid: bac14f97762e20a4da54d69b37dfe157, type: 3}
+  - {fileID: 1982246951730937578, guid: c5ac7dd451a63114392d8748ed052d23, type: 3}
+  - {fileID: 6552006895011882446, guid: 66be1f2d5ec3aa14fbc51ac73d3863eb, type: 3}
+  - {fileID: 7327651127267560468, guid: 5f7f223d810828b4b8394cbd98146801, type: 3}
 --- !u!1 &1640787908
 GameObject:
   m_ObjectHideFlags: 0
