@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour
 {
+    //reference for editing the dialogue box
+    [SerializeField] BattleDialogue dialogueText;
+
     public TurnManager turnManager;
     public Button fireballButton;
     public Button waterBlastButton;
@@ -26,7 +29,7 @@ public class BattleUI : MonoBehaviour
         waterBlastButton.onClick.AddListener(PlayerWaterBlast);
         lightningBoltButton.onClick.AddListener(PlayerLightningBolt);
         healButton.onClick.AddListener(PlayerHeal);
-        
+
         UpdateButtons();
     }
 
@@ -46,7 +49,7 @@ public class BattleUI : MonoBehaviour
     }
 
     void PlayerFireballAttack()
-    {
+    {       
         turnManager.player.GetComponent<PlayerShooting>().FireballAttack();
         turnManager.EndTurn();
     }

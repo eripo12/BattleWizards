@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class Actor : MonoBehaviour
 {
+    //reference for editing the dialogue box
+    [SerializeField] BattleDialogue dialogueText;
+
     public int maxHealth = 100;
     public int currentHealth; // Made this public
     public int attackPower = 10;
@@ -21,6 +24,7 @@ public class Actor : MonoBehaviour
         
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        //dialogueText.setText(gameObject.name + " deals " + damage + " damage.");
 
         Debug.Log(gameObject.name + "'s current health: " + currentHealth);
 
