@@ -11,7 +11,10 @@ public class SceneExit : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         print("Trigger Entered.");
-        PlayerPrefs.SetString("LastExitName", exitName);
-        SceneManager.LoadScene(sceneToLoad);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            PlayerPrefs.SetString("LastExitName", exitName);
+            SceneManager.LoadScene(sceneToLoad);
+        }
     }
 }

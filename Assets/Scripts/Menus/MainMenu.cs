@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     
     void Start()
     {
-        // this is where background music will be initialized
+        PlayerPrefs.DeleteAll();
     }
 
     public void PlayGame()

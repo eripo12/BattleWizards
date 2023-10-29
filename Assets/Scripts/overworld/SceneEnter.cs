@@ -15,9 +15,5 @@ public class SceneEnter : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
