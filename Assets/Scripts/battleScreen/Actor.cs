@@ -53,7 +53,7 @@ public class Actor : MonoBehaviour
     // If the current actor is the enemy, load the "Overworld" scene
     if (gameObject.CompareTag("Enemy"))
     {
-        SceneManager.LoadScene("Overworld");
+        SceneManager.LoadScene("Tower1");
     }
 }
 
