@@ -15,9 +15,13 @@ public class EnemyBehavior : MonoBehaviour
     }
 
     public void TakeTurn()
+{
+    if(gameObject.activeSelf)
     {
         StartCoroutine(DelayedAttack());
     }
+}
+
 
     IEnumerator DelayedAttack()
     {
