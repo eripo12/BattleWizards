@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour
 {
-    //reference for editing the dialogue box
+    // Reference for editing the dialogue box
     [SerializeField] BattleDialogue dialogueText;
 
     public TurnManager turnManager;
@@ -35,18 +35,31 @@ public class BattleUI : MonoBehaviour
 
     void HandleTurnChange(TurnManager.Turn newTurn)
     {
+        Debug.Log("HandleTurnChange called. New turn: " + newTurn);
         UpdateButtons();
     }
 
     void UpdateButtons()
     {
         bool isPlayerTurn = turnManager.currentTurn == TurnManager.Turn.Player && !turnManager.isTurnInProgress;
+        Debug.Log("Updating buttons. Player's turn: " + isPlayerTurn);
 
         fireballButton.interactable = isPlayerTurn;
         waterBlastButton.interactable = isPlayerTurn;
         lightningBoltButton.interactable = isPlayerTurn;
         healButton.interactable = isPlayerTurn && (turnManager.turnCount - lastHealTurn >= 2);
+        UpdateButtons(turnManager.currentTurn);
     }
+    void UpdateButtons(TurnManager.Turn currentTurn)
+{
+    bool isPlayerTurn = currentTurn == TurnManager.Turn.Player && !turnManager.isTurnInProgress;
+    Debug.Log("Updating buttons. Player's turn: " + isPlayerTurn);
+
+    fireballButton.interactable = isPlayerTurn;
+    waterBlastButton.interactable = isPlayerTurn;
+    lightningBoltButton.interactable = isPlayerTurn;
+    healButton.interactable = isPlayerTurn && (turnManager.turnCount - lastHealTurn >= 2);
+}
 
     void PlayerFireballAttack()
     {       

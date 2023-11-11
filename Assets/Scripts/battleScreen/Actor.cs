@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System.Collections;
 
 public class Actor : MonoBehaviour
 {
-    //reference for editing the dialogue box
+    // Reference for editing the dialogue box
     [SerializeField] BattleDialogue dialogueText;
 
     public int maxHealth = 100;
@@ -24,17 +24,15 @@ public class Actor : MonoBehaviour
         
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        //dialogueText.setText(gameObject.name + " deals " + damage + " damage.");
 
         Debug.Log(gameObject.name + "'s current health: " + currentHealth);
 
         if (currentHealth <= 0)
         {
-            Die();
+            StartCoroutine(DelayedDeactivation());
         }
     }
 
-    // Added a method to handle custom attacks with variable damage values
     public void CustomAttack(Actor target, int damageAmount)
     {
         target.TakeDamage(damageAmount);
@@ -45,16 +43,19 @@ public class Actor : MonoBehaviour
         target.TakeDamage(attackPower);
     }
 
-    void Die()
-{
-    // Handle death. For now, just deactivate the object
-    gameObject.SetActive(false);
-
-    // If the current actor is the enemy, load the "Overworld" scene
-    if (gameObject.CompareTag("Enemy"))
+    IEnumerator DelayedDeactivation()
     {
-        SceneManager.LoadScene("Tower1");
+        // Wait for a short duration before deactivating
+        yield return new WaitForSeconds(1f); // You can adjust this duration
+
+        // Deactivate the object
+        gameObject.SetActive(false);
+
+        // If the current actor is the enemy, load the "Overworld" scene
+        if (gameObject.CompareTag("Enemy"))
+        {
+            SceneManager.LoadScene("Tower1");
+        }
     }
 }
 
-}

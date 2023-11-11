@@ -1,13 +1,13 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemyBehavior : MonoBehaviour
 {
     private TurnManager turnManager;
     private Actor actor;
-
-    // Array of prefabs that the enemy can shoot
     public GameObject[] attackPrefabs;
-    
+    public float attackDelay = 10f;  // Delay for the enemy attack
+
     private void Start()
     {
         turnManager = FindObjectOfType<TurnManager>();
@@ -15,18 +15,36 @@ public class EnemyBehavior : MonoBehaviour
     }
 
     public void TakeTurn()
+{
+    if(gameObject.activeSelf)
     {
-        // Enemy randomly selects one of its attacks
+        StartCoroutine(DelayedAttack());
+    }
+}
+
+
+    IEnumerator DelayedAttack()
+    {
+        // Wait for the specified delay
+        yield return new WaitForSeconds(attackDelay);
+
+        // Execute a random attack
         UseRandomAttack();
 
-        // For simplicity, our enemy will just attack the player and end its turn
+        // Then, perform the actual attack on the player
         actor.Attack(turnManager.player);
+
+        // Wait a moment before ending the turn to allow animations or effects to complete
+        yield return new WaitForSeconds(1f);
+
+        // Finally, end the enemy's turn
         turnManager.EndTurn();
+        turnManager.isTurnInProgress = false;
     }
 
     private void UseRandomAttack()
     {
-        if(attackPrefabs.Length == 0)
+        if (attackPrefabs.Length == 0)
         {
             Debug.LogWarning("No attack prefabs assigned for enemy.");
             return;
@@ -39,4 +57,6 @@ public class EnemyBehavior : MonoBehaviour
         Instantiate(selectedAttack, transform.position, Quaternion.identity);
     }
 }
+
+
 
