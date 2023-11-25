@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 0a11f2f19f37d4449ac0eb4c9c948c1a
   - enabled: 1
+    path: Assets/Scenes/ForestVIllage.unity
+    guid: b6d3ca5b3245b5043b4f174563e6054e
+  - enabled: 1
     path: Assets/Scenes/Tower1.unity
     guid: ee65a9f5c23175b49a7ed9fd90f2c1e9
   - enabled: 1
