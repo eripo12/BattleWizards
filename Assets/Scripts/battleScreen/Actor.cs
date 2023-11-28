@@ -21,7 +21,11 @@ public class Actor : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Debug.Log(gameObject.name + " is taking " + damage + " damage.");
-        
+
+        //update battle text with damage taken
+        StartCoroutine(dialogueText.typeText(gameObject.name + " takes " + damage + " damage"));
+
+
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
@@ -35,6 +39,7 @@ public class Actor : MonoBehaviour
 
     public void CustomAttack(Actor target, int damageAmount)
     {
+        StartCoroutine(dialogueText.typeText(gameObject.name + " takes " + damageAmount + " damage"));
         target.TakeDamage(damageAmount);
     }
 

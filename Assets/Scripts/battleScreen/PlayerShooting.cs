@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShooting : MonoBehaviour
 {
+
     public GameObject fireballPrefab;
     public float fireballSpeed = 10f;
     public Vector2 fireballDirection = Vector2.right;
