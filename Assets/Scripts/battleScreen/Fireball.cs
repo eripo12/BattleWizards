@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
+
     public int damage;
 
     void OnCollisionEnter2D(Collision2D collision)

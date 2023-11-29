@@ -25,7 +25,7 @@ public class TurnManager : MonoBehaviour
         // Initially set the turn to Player's turn
         SetTurn(Turn.Player);
 
-        dialogueText.setText("An enemy approaches...");
+        StartCoroutine(dialogueText.typeText("An enemy approaches..."));
     }
 
     void Update()

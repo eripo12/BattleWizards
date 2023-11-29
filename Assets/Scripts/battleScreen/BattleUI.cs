@@ -84,6 +84,7 @@ public class BattleUI : MonoBehaviour
     void PlayerHeal()
     {
         turnManager.player.currentHealth = Mathf.Min(turnManager.player.maxHealth, turnManager.player.currentHealth + 20);
+        StartCoroutine(dialogueText.typeText( "Player heals " + 20 + " HP."));
         turnManager.player.healthBar.SetHealth(turnManager.player.currentHealth); // Update the health bar
         lastHealTurn = turnManager.turnCount;
         turnManager.EndTurn();
