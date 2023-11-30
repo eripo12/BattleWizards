@@ -7,10 +7,20 @@ public class EnemyFireball : MonoBehaviour
     public Vector2 direction = Vector2.left; // The fireball will move from right to left by default
     public float lifespan = 5f;  // Time before the fireball gets destroyed to avoid it staying in the scene indefinitely
     public int damage = 20;      // Damage value
+    private AudioSource audioSource;
 
     private void Start()
     {
         Destroy(gameObject, lifespan); // Destroy the fireball after a certain amount of time
+        audioSource = GetComponent<AudioSource>();
+        PlaySound();
+    }
+    public void PlaySound()
+    {
+        if(audioSource != null)
+        {
+            audioSource.Play();
+        }
     }
 
     private void Update()

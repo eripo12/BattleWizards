@@ -1673,6 +1673,8 @@ MonoBehaviour:
   waterBlastButton: {fileID: 577097991}
   lightningBoltButton: {fileID: 306012864}
   healButton: {fileID: 1807187818}
+  healEffectPrefab: {fileID: 4747281122256452968, guid: fb812815d219d7849bd1ec36b3c56388,
+    type: 3}
   waterBlastPrefab: {fileID: 6516600889927071730, guid: 96b9332ebf51eb54899f66fa91db6f77,
     type: 3}
   lightningBoltPrefab: {fileID: 1476048840203916290, guid: fe0b4ef9324e7fb49999aef170315302,
@@ -2066,7 +2068,7 @@ MonoBehaviour:
   - {fileID: 1982246951730937578, guid: c5ac7dd451a63114392d8748ed052d23, type: 3}
   - {fileID: 6552006895011882446, guid: 66be1f2d5ec3aa14fbc51ac73d3863eb, type: 3}
   - {fileID: 7327651127267560468, guid: 5f7f223d810828b4b8394cbd98146801, type: 3}
-  attackDelay: 10
+  attackDelay: 4
 --- !u!1 &1640787908
 GameObject:
   m_ObjectHideFlags: 0

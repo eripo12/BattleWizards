@@ -6,10 +6,20 @@ public class EnemyWaterBlast : MonoBehaviour
     public Vector2 direction = Vector2.left; // Moving from right to left
     public float lifespan = 2f;             // How long the water blast exists before being destroyed
     public int damage = 20;                 // Damage done to the player
+    private AudioSource audioSource;
 
     private void Start()
     {
         Destroy(gameObject, lifespan);
+        audioSource = GetComponent<AudioSource>();
+        PlaySound();
+    }
+    public void PlaySound()
+    {
+        if(audioSource != null)
+        {
+            audioSource.Play();
+        }
     }
 
     private void Update()
