@@ -12,10 +12,18 @@ public class Actor : MonoBehaviour
     public int attackPower = 10;
     public HealthBar healthBar;
 
+    private GameObject PW;
+
     private void Start()
     {
+        PW = GameObject.Find("PlayerWizard");
+
+
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+
+        PW.GetComponent<SpriteRenderer>().enabled = false;
+
     }
 
     public void TakeDamage(int damage)
@@ -50,11 +58,13 @@ public class Actor : MonoBehaviour
 
     IEnumerator DelayedDeactivation()
     {
+
         // Wait for a short duration before deactivating
         yield return new WaitForSeconds(1f); // You can adjust this duration
 
         // Deactivate the object
         gameObject.SetActive(false);
+        PW.GetComponent<SpriteRenderer>().enabled = true;
 
         // If the current actor is the enemy, load the "Overworld" scene
         if (gameObject.CompareTag("Enemy"))
