@@ -15,6 +15,8 @@ public class MovementScript : MonoBehaviour
     private Vector3 input;
     private Animator animator;
 
+    public bool inBattle;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -25,6 +27,7 @@ public class MovementScript : MonoBehaviour
     void Start()
     {
         movePoint.parent = null;
+        inBattle = false;
     }
 
     // Update is called once per frame
@@ -50,7 +53,7 @@ public class MovementScript : MonoBehaviour
         }
  
 
-        if (Vector3.Distance(transform.position, movePoint.position) <= .05f)
+        if ((Vector3.Distance(transform.position, movePoint.position) <= .05f) & (inBattle == false))
         {
             if (Mathf.Abs(input.x) == 1f)
             {
@@ -79,11 +82,12 @@ public class MovementScript : MonoBehaviour
         var facingDir = new Vector3(animator.GetFloat("moveX"), animator.GetFloat("moveY"));
         var interactPos = transform.position + facingDir;
 
-        if (Physics2D.OverlapCircle(interactPos, 0.3f, interactableLayer))
-            SceneManager.LoadScene(2);
-        //if (collider != null)
-        //{
-        //    SceneManager.LoadScene(1);
-        //}
+        var collider = Physics2D.OverlapCircle(interactPos, 0.3f, interactableLayer);
+        if (collider != null)
+        {
+            collider.GetComponent<Interactable>()?.Interact();
+        }
+
+
     }
 }

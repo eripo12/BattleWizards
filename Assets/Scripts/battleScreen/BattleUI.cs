@@ -11,6 +11,8 @@ public class BattleUI : MonoBehaviour
     public Button waterBlastButton;
     public Button lightningBoltButton;
     public Button healButton;
+    public GameObject healEffectPrefab;
+
 
     // Reference to the prefabs
     public GameObject waterBlastPrefab;
@@ -64,6 +66,7 @@ public class BattleUI : MonoBehaviour
     void PlayerFireballAttack()
     {       
         turnManager.player.GetComponent<PlayerShooting>().FireballAttack();
+        turnManager.enemy.TakeDamage(5);
         turnManager.EndTurn();
     }
 
@@ -81,13 +84,19 @@ public class BattleUI : MonoBehaviour
         turnManager.EndTurn();
     }
 
-    void PlayerHeal()
-    {
-        turnManager.player.currentHealth = Mathf.Min(turnManager.player.maxHealth, turnManager.player.currentHealth + 20);
-        turnManager.player.healthBar.SetHealth(turnManager.player.currentHealth); // Update the health bar
-        lastHealTurn = turnManager.turnCount;
-        turnManager.EndTurn();
-    }
+   void PlayerHeal()
+{
+
+    Instantiate(healEffectPrefab, turnManager.player.transform.position, Quaternion.identity);
+
+    
+    turnManager.player.currentHealth = Mathf.Min(turnManager.player.maxHealth, turnManager.player.currentHealth + 20);
+    StartCoroutine(dialogueText.typeText("Player heals " + 20 + " HP."));
+    turnManager.player.healthBar.SetHealth(turnManager.player.currentHealth); // Update the health bar
+    lastHealTurn = turnManager.turnCount;
+    turnManager.EndTurn();
+}
+
 }
 
 
