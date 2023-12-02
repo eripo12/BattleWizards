@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/battle Screen 2.unity
     guid: 66ea6989650b78041860492a00d671dc
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 66d5402e755bc204c8c373067f7b6075
   m_configObjects: {}
