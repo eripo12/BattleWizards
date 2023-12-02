@@ -66,6 +66,7 @@ public class BattleUI : MonoBehaviour
     void PlayerFireballAttack()
     {       
         turnManager.player.GetComponent<PlayerShooting>().FireballAttack();
+        turnManager.enemy.TakeDamage(5);
         turnManager.EndTurn();
     }
 
