@@ -19,9 +19,17 @@ public class BGMTower : MonoBehaviour
         }
     }
 
-    void Update()
+    /*void Update()
     {
         if (SceneManager.GetActiveScene().name == "ForestVIllage" )
             Destroy(gameObject);
+    }*/
+    void Update()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName != "Tower1" && sceneName != "Tower2")
+        {
+            Destroy(gameObject);
+        }
     }
 }
