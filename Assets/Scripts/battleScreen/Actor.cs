@@ -16,13 +16,16 @@ public class Actor : MonoBehaviour
 
     private void Start()
     {
+        
         PW = GameObject.Find("PlayerWizard");
-
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
 
+        // visually disables the overworld character
         PW.GetComponent<SpriteRenderer>().enabled = false;
+        // inBattle prevents overworld character from moving during battle scene
+        PW.GetComponent<MovementScript>().inBattle = true;
 
     }
 
@@ -65,7 +68,10 @@ public class Actor : MonoBehaviour
         // If the current actor is the enemy, load the "Overworld" scene
         if (gameObject.CompareTag("Enemy"))
         {
-            SceneManager.LoadScene("Tower1");
+            // Lets overworld charcter move again
+            PW.GetComponent<MovementScript>().inBattle = false;
+            // Loads previous scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 }

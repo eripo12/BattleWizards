@@ -5,15 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class HostileNPC : MonoBehaviour, Interactable
 {
-    //private GameObject PW;
-    //private GameObject PMP;
+    
+    public string holdPos = "";
 
     public void Interact()
    {
-        //PW = GameObject.Find("PlayerWizard");
-        //PMP = GameObject.Find("PlayerMovePoint");
-        //PW.SetActive(false);
-        //PMP.SetActive(false);
+        //Sets the playerpref of lastexitname to empty so that the playerwizard sprite spawns on the same spot in the overworld
+        PlayerPrefs.SetString("LastExitName", holdPos);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
    }
 }
