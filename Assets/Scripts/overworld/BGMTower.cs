@@ -1,11 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
+ 
 public class BGMTower : MonoBehaviour
 {
-    private void Awake()
+    public static BGMTower instance;
+ 
+    void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (instance != null)
+            Destroy(gameObject);
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
+
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "ForestVIllage" )
+            Destroy(gameObject);
     }
 }
