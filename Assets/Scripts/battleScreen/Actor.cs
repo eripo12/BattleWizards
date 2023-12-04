@@ -11,6 +11,7 @@ public class Actor : MonoBehaviour
     public int currentHealth; // Made this public
     public int attackPower = 10;
     public HealthBar healthBar;
+    private string currentSceneName;
 
     private GameObject PW;
 
@@ -18,6 +19,7 @@ public class Actor : MonoBehaviour
     {
         
         PW = GameObject.Find("PlayerWizard");
+        currentSceneName = SceneManager.GetActiveScene().name;
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -55,24 +57,33 @@ public class Actor : MonoBehaviour
         target.TakeDamage(attackPower);
     }
 
-    IEnumerator DelayedDeactivation()
+
+     IEnumerator DelayedDeactivation()
     {
+        yield return new WaitForSeconds(1f); 
 
-        // Wait for a short duration before deactivating
-        yield return new WaitForSeconds(1f); // You can adjust this duration
-
-        // Deactivate the object
         gameObject.SetActive(false);
         PW.GetComponent<SpriteRenderer>().enabled = true;
 
-        // If the current actor is the enemy, load the "Overworld" scene
         if (gameObject.CompareTag("Enemy"))
         {
-            // Lets overworld charcter move again
             PW.GetComponent<MovementScript>().inBattle = false;
-            // Loads previous scene
+            LoadNextScene(); 
+        }
+    }
+
+    private void LoadNextScene()
+    {
+        if (currentSceneName.Equals("battle Screen 2", System.StringComparison.OrdinalIgnoreCase))
+        {
+            SceneManager.LoadScene("Ending");
+        }
+        else
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 }
+     
+
 
