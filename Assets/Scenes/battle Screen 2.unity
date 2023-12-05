@@ -1551,6 +1551,7 @@ GameObject:
   - component: {fileID: 1143001882}
   - component: {fileID: 1143001881}
   - component: {fileID: 1143001885}
+  - component: {fileID: 1143001886}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1649,9 +1650,33 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143001880}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33fee9891ffbeb348b72d8b2c5cc670b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueText: {fileID: 2128978734}
+  turnManager: {fileID: 1247493953}
+  fireballButton: {fileID: 96316961}
+  waterBlastButton: {fileID: 577097991}
+  lightningBoltButton: {fileID: 306012864}
+  healButton: {fileID: 1807187818}
+  healEffectPrefab: {fileID: 4747281122256452968, guid: fb812815d219d7849bd1ec36b3c56388,
+    type: 3}
+  waterBlastPrefab: {fileID: 6516600889927071730, guid: 96b9332ebf51eb54899f66fa91db6f77,
+    type: 3}
+  lightningBoltPrefab: {fileID: 1476048840203916290, guid: fe0b4ef9324e7fb49999aef170315302,
+    type: 3}
+--- !u!114 &1143001886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143001880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d6e264ff9c2594a8752675f3f1a9dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 2128978734}
