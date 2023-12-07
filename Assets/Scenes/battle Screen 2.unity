@@ -2061,7 +2061,7 @@ MonoBehaviour:
   dialogueText: {fileID: 2128978734}
   maxHealth: 100
   currentHealth: 100
-  attackPower: 5
+  attackPower: 15
   healthBar: {fileID: 1117843153}
 --- !u!114 &1263766407
 MonoBehaviour:
